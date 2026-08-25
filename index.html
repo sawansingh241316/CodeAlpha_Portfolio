@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Sawan Singh Mourya | Java Full-Stack Developer & CSE</title>
+    <meta name="title" content="Sawan Singh Mourya | Java Full-Stack Developer & CSE">
+    <meta name="description" content="Portfolio of Sawan Singh Mourya, a B.Tech Computer Science Engineering student and aspiring Java Full-Stack Developer building scalable web applications with Java, Spring Boot, MySQL, and modern frontend technologies.">
+    <meta name="keywords" content="Sawan Singh Mourya, Java Full-Stack Developer, B.Tech CSE, Spring Boot, Software Engineer Portfolio, Acropolis Institute, Indore, Java Developer">
+    <meta name="author" content="Sawan Singh Mourya">
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sawansingh241316.github.io/portfolio/">
+    <meta property="og:title" content="Sawan Singh Mourya | Java Full-Stack Developer">
+    <meta property="og:description" content="Explore projects, skills, and experience of Sawan Singh Mourya, an aspiring Java Full-Stack Developer specialized in Spring Boot, MySQL, REST APIs, and modern Web UI.">
+    <meta property="og:image" content="assets/images/profile_avatar.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Sawan Singh Mourya | Java Full-Stack Developer">
+    <meta property="twitter:description" content="Portfolio of Sawan Singh Mourya, B.Tech CSE student & Java Full-Stack Developer.">
+    <meta property="twitter:image" content="assets/images/profile_avatar.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- External Libraries (Three.js & GSAP) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Glowing Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <div class="cyber-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">SAWAN.DEV</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="loader-status">
+                <span id="loadPercent">0%</span>
+                <span class="loader-text">INITIALIZING CORE ENGINE...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ambient Glowing Background Blobs -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="bg-grid-pattern"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar-header" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand magnetic-target">
+                <span class="brand-symbol">&lt;</span>SAWAN<span class="accent-dot">.</span>DEV<span class="brand-symbol">/&gt;</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                    <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-controls">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle magnetic-target" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <!-- 3D Three.js Interactive Canvas -->
+            <div id="threeCanvasContainer" class="three-canvas-container"></div>
+            
+            <div class="hero-content-wrapper">
+                <div class="container hero-container">
+                    <div class="hero-text-content">
+                        <div class="hero-badge reveal-fade">
+                            <span class="status-indicator"></span>
+                            <span class="badge-text">Available for Internships & Full-Time Roles</span>
+                        </div>
+                        
+                        <p class="hero-intro reveal-fade">Hi, I'm <span class="highlight-name">Sawan Singh Mourya</span></p>
+                        
+                        <h1 class="hero-title reveal-fade">
+                            Computer Science Engineer & <br>
+                            <span class="gradient-text">Java Full-Stack Developer</span>
+                        </h1>
+                        
+                        <p class="hero-description reveal-fade">
+                            I build scalable, modern, and user-focused web applications using 
+                            <strong class="text-glow">Java</strong>, <strong class="text-glow">Spring Boot</strong>, 
+                            <strong class="text-glow">MySQL</strong>, <strong class="text-glow">JavaScript</strong>, 
+                            and modern web technologies.
+                        </p>
+                        
+                        <div class="hero-cta-group reveal-fade">
+                            <a href="#projects" class="btn btn-primary magnetic-target">
+                                <span>View My Projects</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                            <a href="assets/resume/Sawan_Singh_Mourya_Resume.pdf" download class="btn btn-secondary magnetic-target" id="heroResumeBtn">
+                                <i class="fa-solid fa-file-arrow-down"></i>
+                                <span>Download Resume</span>
+                            </a>
+                            <a href="#contact" class="btn btn-outline magnetic-target">
+                                <span>Contact Me</span>
+                            </a>
+                        </div>
+                        
+                        <div class="hero-social-links reveal-fade">
+                            <span class="social-label">Connect with me:</span>
+                            <div class="social-icons">
+                                <a href="https://github.com/sawansingh241316" target="_blank" rel="noopener noreferrer" class="social-icon magnetic-target" aria-label="GitHub">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/sawan-singh-mourya" target="_blank" rel="noopener noreferrer" class="social-icon magnetic-target" aria-label="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="mailto:sawanmourya08@gmail.com" class="social-icon magnetic-target" aria-label="Email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animated Scroll Down Indicator -->
+                <a href="#about" class="scroll-down-indicator" aria-label="Scroll to About Section">
+                    <span class="mouse-icon">
+                        <span class="wheel"></span>
+                    </span>
+                    <span class="scroll-text">SCROLL DOWN</span>
+                    <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section-padding about-section">
+            <div class="container">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-subtitle">&lt;DISCOVER MY STORY/&gt;</span>
+                    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- 3D Tilt Profile Card -->
+                    <div class="about-profile-col reveal-left">
+                        <div class="profile-card tilt-card" data-tilt>
+                            <div class="card-glass-glow"></div>
+                            <div class="profile-image-container">
+                                <img src="assets/images/profile_avatar.jpg" alt="Sawan Singh Mourya Avatar" class="profile-img" loading="lazy">
+                                <div class="image-overlay"></div>
+                                <div class="tech-tag floating-tag-1">
+                                    <i class="fa-brands fa-java"></i> Java 17+
+                                </div>
+                                <div class="tech-tag floating-tag-2">
+                                    <i class="fa-solid fa-cubes"></i> Spring Boot
+                                </div>
+                            </div>
+                            <div class="profile-card-footer">
+                                <h3 class="profile-name">Sawan Singh Mourya</h3>
+                                <p class="profile-role">Aspiring Java Full-Stack Developer</p>
+                                <div class="location-badge">
+                                    <i class="fa-solid fa-location-dot"></i> Indore, Madhya Pradesh, India
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Text & Highlights -->
+                    <div class="about-info-col reveal-right">
+                        <div class="glass-card info-card">
+                            <h3 class="info-heading">
+                                Dedicated Computer Science Engineer Crafting High-Performance Systems
+                            </h3>
+                            <p class="info-text">
+                                I am currently pursuing my <strong>B.Tech in Computer Science Engineering</strong> at 
+                                <strong>Acropolis Institute of Technology and Research, Indore</strong>, with a strong foundation built through a 
+                                <strong>Diploma in Computer Science Engineering</strong> from Polytechnic Khandwa.
+                            </p>
+                            <p class="info-text">
+                                My focus lies in software engineering, backend architecture, relational database management, and modern responsive frontend design. I enjoy transforming complex requirements into elegant, efficient full-stack web platforms using 
+                                <span class="highlight-pill">Java</span>, 
+                                <span class="highlight-pill">Spring Boot</span>, 
+                                <span class="highlight-pill">MySQL</span>, 
+                                <span class="highlight-pill">REST APIs</span>, and 
+                                <span class="highlight-pill">JavaScript</span>.
+                            </p>
+
+                            <div class="key-skills-grid">
+                                <div class="key-skill-item">
+                                    <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                                    <div class="skill-info">
+                                        <h4>Full-Stack Mastery</h4>
+                                        <p>Java Backend + Modern Web UI</p>
+                                    </div>
+                                </div>
+                                <div class="key-skill-item">
+                                    <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+                                    <div class="skill-info">
+                                        <h4>Database & Relational Design</h4>
+                                        <p>MySQL, Schemas & Queries</p>
+                                    </div>
+                                </div>
+                                <div class="key-skill-item">
+                                    <div class="skill-icon"><i class="fa-solid fa-gears"></i></div>
+                                    <div class="skill-info">
+                                        <h4>RESTful API Architecture</h4>
+                                        <p>Clean endpoints & Microservices</p>
+                                    </div>
+                                </div>
+                                <div class="key-skill-item">
+                                    <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+                                    <div class="skill-info">
+                                        <h4>Algorithmic Thinking</h4>
+                                        <p>Data Structures & Problem Solving</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Count-up Statistics Grid -->
+                        <div class="stats-grid">
+                            <div class="stat-card glass-card">
+                                <div class="stat-number" data-target="10">0</div>
+                                <span class="stat-plus">+</span>
+                                <p class="stat-label">Projects Completed</p>
+                            </div>
+                            <div class="stat-card glass-card">
+                                <div class="stat-number" data-target="5">0</div>
+                                <span class="stat-plus">+</span>
+                                <p class="stat-label">Core Tech Stack</p>
+                            </div>
+                            <div class="stat-card glass-card">
+                                <div class="stat-number" data-target="100">0</div>
+                                <span class="stat-plus">%</span>
+                                <p class="stat-label">Dedication & Passion</p>
+                            </div>
+                            <div class="stat-card glass-card">
+                                <div class="stat-icon-wrap"><i class="fa-solid fa-infinity"></i></div>
+                                <p class="stat-label">Continuous Learning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="section-padding skills-section">
+            <div class="container">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-subtitle">&lt;MY TECHNICAL TOOLBOX/&gt;</span>
+                    <h2 class="section-title">Skills & <span class="gradient-text">Proficiency</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="skills-matrix-grid">
+                    <!-- Programming Languages -->
+                    <div class="skill-category-card glass-card reveal-up tilt-card">
+                        <div class="category-header">
+                            <div class="category-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                            <h3 class="category-title">Programming</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-brands fa-java color-java"></i> Java (SE/EE)</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-brands fa-js color-js"></i> JavaScript (ES6+)</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-database color-sql"></i> SQL (Structured Query Lang)</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 88%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Frameworks -->
+                    <div class="skill-category-card glass-card reveal-up tilt-card" style="animation-delay: 0.1s;">
+                        <div class="category-header">
+                            <div class="category-icon-box"><i class="fa-solid fa-server"></i></div>
+                            <h3 class="category-title">Backend Development</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-leaf color-spring"></i> Spring Boot Framework</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-network-wired color-api"></i> RESTful API Architecture</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-shield-halved color-security"></i> Auth & Security Principles</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Database Systems -->
+                    <div class="skill-category-card glass-card reveal-up tilt-card" style="animation-delay: 0.2s;">
+                        <div class="category-header">
+                            <div class="category-icon-box"><i class="fa-solid fa-database"></i></div>
+                            <h3 class="category-title">Databases</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-table color-mysql"></i> MySQL Database</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 88%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-diagram-project color-schema"></i> Relational Schema Design</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-bolt color-query"></i> Query Optimization</span>
+                                    <span class="skill-percentage">82%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 82%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frontend Technologies -->
+                    <div class="skill-category-card glass-card reveal-up tilt-card" style="animation-delay: 0.3s;">
+                        <div class="category-header">
+                            <div class="category-icon-box"><i class="fa-solid fa-object-group"></i></div>
+                            <h3 class="category-title">Frontend Engineering</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-brands fa-html5 color-html"></i> HTML5 & Semantic Markup</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-brands fa-css3-alt color-css"></i> CSS3, Flexbox & Grid</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="skill-progress-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name"><i class="fa-solid fa-mobile-screen-button color-responsive"></i> Responsive Web Layouts</span>
+                                    <span class="skill-percentage">92%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 92%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Developer Tools & Workflow -->
+                    <div class="skill-category-card glass-card reveal-up tilt-card" style="animation-delay: 0.4s;">
+                        <div class="category-header">
+                            <div class="category-icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <h3 class="category-title">Tools & Environment</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-badges-grid">
+                                <span class="skill-pill"><i class="fa-brands fa-git-alt color-git"></i> Git</span>
+                                <span class="skill-pill"><i class="fa-brands fa-github color-github"></i> GitHub</span>
+                                <span class="skill-pill"><i class="fa-solid fa-code color-vscode"></i> VS Code</span>
+                                <span class="skill-pill"><i class="fa-solid fa-paper-plane color-postman"></i> Postman</span>
+                                <span class="skill-pill"><i class="fa-solid fa-terminal color-cli"></i> Command Line</span>
+                                <span class="skill-pill"><i class="fa-solid fa-cubes-stacked color-maven"></i> Maven</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section-padding projects-section">
+            <div class="container">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-subtitle">&lt;PORTFOLIO SHOWCASE/&gt;</span>
+                    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: College ERP System -->
+                    <article class="project-card glass-card reveal-up tilt-card" data-tilt>
+                        <div class="project-image-wrapper">
+                            <img src="assets/images/college_erp.jpg" alt="College ERP System Preview" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="overlay-actions">
+                                    <button class="btn-icon view-details-btn magnetic-target" data-project="erp" aria-label="View Details">
+                                        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="project-category-badge">Full-Stack Platform</span>
+                        </div>
+
+                        <div class="project-content">
+                            <h3 class="project-title">College ERP Management System</h3>
+                            <p class="project-description">
+                                A comprehensive full-stack web portal designed for educational institutions to manage students, faculty records, automated attendance, academic marks, timetables, and assignments.
+                            </p>
+
+                            <div class="project-features">
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Student & Faculty Portals</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Attendance Tracking</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Admin Analytics</span>
+                            </div>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">Spring Boot</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">HTML5/CSS3</span>
+                                <span class="tech-badge">JavaScript</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://github.com/sawansingh241316" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline magnetic-target">
+                                    <i class="fa-brands fa-github"></i> GitHub Repo
+                                </a>
+                                <button class="btn btn-sm btn-primary view-details-btn magnetic-target" data-project="erp">
+                                    <span>Explore Features</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Image Gallery -->
+                    <article class="project-card glass-card reveal-up tilt-card" data-tilt style="animation-delay: 0.1s;">
+                        <div class="project-image-wrapper">
+                            <img src="assets/images/image_gallery.jpg" alt="Interactive Image Gallery Preview" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="overlay-actions">
+                                    <a href="https://github.com/sawansingh241316/CodeAlpha_ImageGallery" target="_blank" rel="noopener noreferrer" class="btn-icon magnetic-target" aria-label="Open Repository">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <span class="project-category-badge">Frontend Web Application</span>
+                        </div>
+
+                        <div class="project-content">
+                            <h3 class="project-title">Interactive Image Gallery</h3>
+                            <p class="project-description">
+                                A dynamic, responsive media gallery featuring real-time category filtering, instant search querying, modal lightbox previews, and seamless dark/light theme switching.
+                            </p>
+
+                            <div class="project-features">
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Instant Category Filter</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Lightbox Viewer</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Theme Persistence</span>
+                            </div>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3 Custom Props</span>
+                                <span class="tech-badge">Vanilla JS</span>
+                                <span class="tech-badge">Flexbox/Grid</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://github.com/sawansingh241316/CodeAlpha_ImageGallery" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline magnetic-target">
+                                    <i class="fa-brands fa-github"></i> Source Code
+                                </a>
+                                <a href="https://github.com/sawansingh241316/CodeAlpha_ImageGallery" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary magnetic-target">
+                                    <span>Live Preview</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Java REST API Engine -->
+                    <article class="project-card glass-card reveal-up tilt-card" data-tilt style="animation-delay: 0.2s;">
+                        <div class="project-image-wrapper">
+                            <img src="assets/images/java_rest_api.jpg" alt="Java REST API Architecture Preview" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="overlay-actions">
+                                    <button class="btn-icon view-details-btn magnetic-target" data-project="api" aria-label="Open Interactive API Tester">
+                                        <i class="fa-solid fa-terminal"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="project-category-badge">Backend Architecture & REST</span>
+                        </div>
+
+                        <div class="project-content">
+                            <h3 class="project-title">Java Spring Boot REST API Service</h3>
+                            <p class="project-description">
+                                A high-performance RESTful microservice API providing structured JSON endpoints, controller error handling, repository mapping, and MySQL data access layer.
+                            </p>
+
+                            <div class="project-features">
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> REST Controllers & DTOs</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Spring Data JPA</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> JSON Payload Mapping</span>
+                            </div>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-badge">Java 17</span>
+                                <span class="tech-badge">Spring Boot</span>
+                                <span class="tech-badge">REST API</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">Postman</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://github.com/sawansingh241316" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline magnetic-target">
+                                    <i class="fa-brands fa-github"></i> Repository
+                                </a>
+                                <button class="btn btn-sm btn-primary view-details-btn magnetic-target" data-project="api">
+                                    <i class="fa-solid fa-play"></i>
+                                    <span>Test API Live</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: NeoStore Full-Stack E-Commerce Portal -->
+                    <article class="project-card glass-card reveal-up tilt-card" data-tilt style="animation-delay: 0.3s;">
+                        <div class="project-image-wrapper">
+                            <img src="assets/images/ecommerce.jpg" alt="NeoStore E-Commerce Portal Preview" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="overlay-actions">
+                                    <button class="btn-icon view-details-btn magnetic-target" data-project="ecommerce" aria-label="View Details">
+                                        <i class="fa-solid fa-bag-shopping"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="project-category-badge">Full-Stack Application</span>
+                        </div>
+
+                        <div class="project-content">
+                            <h3 class="project-title">NeoStore E-Commerce & Tech Portal</h3>
+                            <p class="project-description">
+                                A modern full-stack electronic store interface featuring dynamic product catalog cards, interactive shopping cart management, price filtering, and order summary workflows.
+                            </p>
+
+                            <div class="project-features">
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Cart State Management</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Product Search</span>
+                                <span class="feature-tag"><i class="fa-solid fa-check"></i> Responsive UI</span>
+                            </div>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">Spring Boot</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Glassmorphism</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://github.com/sawansingh241316" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline magnetic-target">
+                                    <i class="fa-brands fa-github"></i> Repository
+                                </a>
+                                <button class="btn btn-sm btn-primary view-details-btn magnetic-target" data-project="ecommerce">
+                                    <span>Explore Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section id="experience" class="section-padding experience-section">
+            <div class="container">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-subtitle">&lt;MY ACADEMIC JOURNEY/&gt;</span>
+                    <h2 class="section-title">Education & <span class="gradient-text">Qualifications</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <span class="timeline-date">Currently Pursuing</span>
+                            <h3 class="timeline-title">Bachelor of Technology (B.Tech)</h3>
+                            <h4 class="timeline-subtitle">Computer Science Engineering</h4>
+                            <p class="timeline-institution">
+                                <i class="fa-solid fa-building-columns"></i> Acropolis Institute of Technology and Research, Indore
+                            </p>
+                            <p class="timeline-description">
+                                Focusing on core computer science fundamentals, Software Engineering, Object-Oriented Programming (Java), Data Structures & Algorithms, Database Systems (MySQL), Web Technologies, and Cloud Computing concepts.
+                            </p>
+                            <div class="timeline-tags">
+                                <span>Java Programming</span>
+                                <span>DBMS & SQL</span>
+                                <span>Web Engineering</span>
+                                <span>OOP Principles</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <span class="timeline-date">Completed Qualification</span>
+                            <h3 class="timeline-title">Diploma in Engineering</h3>
+                            <h4 class="timeline-subtitle">Computer Science & Engineering</h4>
+                            <p class="timeline-institution">
+                                <i class="fa-solid fa-school"></i> Government Polytechnic College, Khandwa
+                            </p>
+                            <p class="timeline-description">
+                                Built strong practical fundamentals in computer programming, hardware architecture, web development basics, database administration, and software logic building.
+                            </p>
+                            <div class="timeline-tags">
+                                <span>Java / C++ Basics</span>
+                                <span>HTML CSS & JavaScript</span>
+                                <span>SQL / MySQL</span>
+                                <span>OOP Concepts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume CTA Section -->
+        <section id="resume" class="section-padding resume-section">
+            <div class="container">
+                <div class="resume-cta-card glass-card reveal-up text-center">
+                    <div class="cta-glow"></div>
+                    <div class="resume-icon-circle">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h2 class="cta-title">Let's Build Something <span class="gradient-text">Great Together</span></h2>
+                    <p class="cta-subtitle">
+                        Interested in working together, recruiting for full-time / internship software roles, or discussing a tech project?
+                    </p>
+
+                    <div class="resume-preview-box">
+                        <div class="pdf-preview-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="pdf-title">Sawan_Singh_Mourya_Resume.pdf</span>
+                        </div>
+                        <div class="pdf-preview-body">
+                            <div class="pdf-text-lines">
+                                <span class="line line-lg"></span>
+                                <span class="line line-md"></span>
+                                <span class="line line-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-actions">
+                        <a href="assets/resume/Sawan_Singh_Mourya_Resume.pdf" download class="btn btn-primary btn-lg magnetic-target">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Download Formal Resume</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary btn-lg magnetic-target">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Contact Me Directly</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding contact-section">
+            <div class="container">
+                <div class="section-header text-center reveal-fade">
+                    <span class="section-subtitle">&lt;GET IN TOUCH/&gt;</span>
+                    <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Cards -->
+                    <div class="contact-info-col reveal-left">
+                        <div class="contact-card glass-card">
+                            <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-card-details">
+                                <h3>Direct Email</h3>
+                                <p>Feel free to reach out anytime</p>
+                                <a href="mailto:sawanmourya08@gmail.com" class="contact-link">sawanmourya08@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card glass-card">
+                            <div class="contact-card-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div class="contact-card-details">
+                                <h3>LinkedIn Network</h3>
+                                <p>Connect for professional networking</p>
+                                <a href="https://linkedin.com/in/sawan-singh-mourya" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/sawan-singh-mourya</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card glass-card">
+                            <div class="contact-card-icon"><i class="fa-brands fa-github"></i></div>
+                            <div class="contact-card-details">
+                                <h3>GitHub Profile</h3>
+                                <p>Explore repositories & open-source code</p>
+                                <a href="https://github.com/sawansingh241316" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/sawansingh241316</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-location-box glass-card">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Based in Indore, Madhya Pradesh, India • Open for Relocation & Remote Roles</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-col reveal-right">
+                        <form id="contactForm" class="contact-form glass-card" novalidate>
+                            <h3 class="form-title">Send A Message</h3>
+                            
+                            <div class="form-group floating-group">
+                                <input type="text" id="contactName" name="name" class="form-input" placeholder=" " required>
+                                <label for="contactName" class="form-label">Your Full Name</label>
+                                <span class="input-focus-border"></span>
+                                <span class="error-text" id="nameError">Please enter your name</span>
+                            </div>
+
+                            <div class="form-group floating-group">
+                                <input type="email" id="contactEmail" name="email" class="form-input" placeholder=" " required>
+                                <label for="contactEmail" class="form-label">Your Email Address</label>
+                                <span class="input-focus-border"></span>
+                                <span class="error-text" id="emailError">Please enter a valid email address</span>
+                            </div>
+
+                            <div class="form-group floating-group">
+                                <input type="text" id="contactSubject" name="subject" class="form-input" placeholder=" " required>
+                                <label for="contactSubject" class="form-label">Subject</label>
+                                <span class="input-focus-border"></span>
+                                <span class="error-text" id="subjectError">Please enter a subject</span>
+                            </div>
+
+                            <div class="form-group floating-group">
+                                <textarea id="contactMessage" name="message" class="form-input form-textarea" rows="5" placeholder=" " required></textarea>
+                                <label for="contactMessage" class="form-label">Your Message</label>
+                                <span class="input-focus-border"></span>
+                                <span class="error-text" id="messageError">Please enter your message (at least 10 characters)</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block magnetic-target" id="submitBtn">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+
+                            <div id="formStatus" class="form-status-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <span class="brand-symbol">&lt;</span>SAWAN<span class="accent-dot">.</span>DEV<span class="brand-symbol">/&gt;</span>
+                    </a>
+                    <p class="footer-tagline">Building the future, one line of code at a time.</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#resume">Resume</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="https://github.com/sawansingh241316" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/sawan-singh-mourya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:sawanmourya08@gmail.com" aria-label="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sawan Singh Mourya. All Rights Reserved.</p>
+                <p class="footer-tech-stack">Crafted with HTML5 • CSS3 • Vanilla JS • Three.js</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details & Interactive API Tester Modal -->
+    <div class="modal-backdrop" id="projectModal">
+        <div class="modal-card glass-card">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Content dynamically populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
