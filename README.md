@@ -1,4 +1,4 @@
-# ⚡ Sawan Singh Mourya - Personal Developer Portfolio
+# ⚡ Sawan Singh Mourya - Portfolio
 
 > **Computer Science Engineer & Aspiring Java Full-Stack Developer**  
 > A premium, modern, interactive, and production-ready portfolio website built with HTML5, CSS3, Vanilla JavaScript, Three.js 3D Engine, and GSAP animations.
@@ -88,8 +88,8 @@ npx serve .
 - **Education**: B.Tech Computer Science Engineering (Acropolis Institute of Technology and Research, Indore) | Diploma CSE (Polytechnic Khandwa)
 - **Role**: Java Full-Stack Developer (Java, Spring Boot, MySQL, REST APIs, HTML/CSS/JavaScript, Git)
 - **GitHub**: [github.com/sawansingh241316](https://github.com/sawansingh241316)
-- **Email**: `sawansingh241316@gmail.com`
-- **LinkedIn**: `[ADD LINKEDIN URL]`
+- **Email**: `sawanmourya08@gmail.com`
+- **LinkedIn**: `https://linkedin.com/in/sawan-singh-mourya`
 
 ---
 
